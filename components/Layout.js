@@ -1,12 +1,19 @@
 import Navbar from '../src/components/Navbar';
+import Head from 'next/head';
 
-const Layout = ({ children }) => {
+export default function Layout({ children }) {
   return (
-    <div>
-      <Navbar />
-      <main>{children}</main>
-    </div>
+    <>
+      <Head>
+        <title>Unlmtd Marketing</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="min-h-screen bg-black">
+        <Navbar />
+        <main className="pt-16"> {/* Add padding-top to account for fixed navbar */}
+          {children}
+        </main>
+      </div>
+    </>
   );
-};
-
-export default Layout; 
+} 

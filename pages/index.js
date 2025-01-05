@@ -30,7 +30,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Content (with increased z-index to appear above stars) */}
+        {/* Content */}
         <div className="relative z-10">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-4 text-white font-lexend">
             Welcome to the world of
@@ -210,7 +210,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Add Modal Component */}
+      {/* Modal Component */}
       <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
