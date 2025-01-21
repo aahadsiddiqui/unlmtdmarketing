@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Modal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -6,12 +7,39 @@ export default function Modal({ isOpen, onClose }) {
     phoneNumber: '',
     emailAddress: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
-    onClose();
+    setIsSubmitting(true);
+    
+    try {
+      await emailjs.send(
+        'service_7x478ls', // Service ID
+        'template_iko9inv', // Template ID
+        {
+          to_email: 'unlmtdmarketingagency@gmail.com',
+          from_name: formData.businessName,
+          from_email: formData.emailAddress,
+          phone: formData.phoneNumber,
+          message: `New contact from ${formData.businessName}`,
+        },
+        'W9kqgGX5AeD1Jdfsg' // Public Key
+      );
+      
+      setSubmitStatus('success');
+      setTimeout(() => {
+        onClose();
+        setSubmitStatus(null);
+        setFormData({ businessName: '', phoneNumber: '', emailAddress: '' });
+      }, 2000);
+    } catch (error) {
+      console.error('Email error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -75,10 +103,20 @@ export default function Modal({ isOpen, onClose }) {
           
           <button
             type="submit"
-            className="w-full bg-[#1a5ec3] text-white py-3 rounded-md hover:bg-blue-700 transition-colors font-lexend"
+            disabled={isSubmitting}
+            className={`w-full bg-[#1a5ec3] text-white py-3 rounded-md hover:bg-blue-700 transition-colors font-lexend ${
+              isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
-            Submit
+            {isSubmitting ? 'Sending...' : 'Submit'}
           </button>
+
+          {submitStatus === 'success' && (
+            <p className="text-green-600 text-center">Message sent successfully!</p>
+          )}
+          {submitStatus === 'error' && (
+            <p className="text-red-600 text-center">Failed to send message. Please try again.</p>
+          )}
         </form>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Navbar() {
+export default function Navbar({ openModal }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -40,7 +40,7 @@ export default function Navbar() {
             Why Unlimited?
           </Link>
           <button
-            onClick={() => window.openModal?.()}
+            onClick={openModal}
             className="bg-[#1a5ec3] text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors text-lg"
           >
             Contact Us
@@ -98,7 +98,7 @@ export default function Navbar() {
           </Link>
           <button
             onClick={() => {
-              window.openModal?.();
+              openModal();
               toggleMenu();
             }}
             className="bg-[#1a5ec3] text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors mt-4"

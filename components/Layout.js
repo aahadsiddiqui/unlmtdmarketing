@@ -1,7 +1,14 @@
+import { useState } from 'react';
 import Navbar from '../src/components/Navbar';
+import Modal from '../src/components/Modal';
 import Head from 'next/head';
 
 export default function Layout({ children }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <>
       <Head>
@@ -9,10 +16,11 @@ export default function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="min-h-screen bg-black">
-        <Navbar />
-        <main className="pt-16"> {/* Add padding-top to account for fixed navbar */}
+        <Navbar openModal={openModal} />
+        <main className="pt-16">
           {children}
         </main>
+        <Modal isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </>
   );
