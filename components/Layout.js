@@ -9,6 +9,10 @@ export default function Layout({ children }) {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  if (typeof window !== 'undefined') {
+    window.openModal = openModal;
+  }
+
   return (
     <>
       <Head>

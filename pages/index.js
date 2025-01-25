@@ -1,44 +1,61 @@
 import { useState } from 'react';
 import Modal from '../src/components/Modal';
+import { useIntersectionObserver } from '../src/hooks/useIntersectionObserver';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  useIntersectionObserver();
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gradient-to-b from-black via-[#1a5ec3]/20 to-black">
       {/* Hero Section */}
-      <main className="w-full max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 relative min-h-[70vh]">
-        {/* Content */}
-        <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-4 text-white font-lexend">
-            Welcome to the world of
-            <br />
-            <span className="relative">
-              UNLMTD
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-[#1a5ec3]"></span>
-            </span>
-          </h1>
-          <p className="text-2xl text-center text-[#1a5ec3] font-lexend mt-6 mb-8">
-            For Brands that Mean Business
-          </p>
-          <div className="flex justify-center">
-            <button 
-              onClick={openModal}
-              className="bg-[#1a5ec3] text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors font-lexend"
-            >
-              Get Started Today
-            </button>
+      <main className="relative w-full min-h-[60vh]">
+        <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+          {/* Content */}
+          <div className="relative z-10">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-4 text-white font-lexend fade-in">
+              Welcome to the world of
+              <br />
+              <span className="relative">
+                UNLMTD
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#1a5ec3]"></span>
+              </span>
+            </h1>
+            <p className="text-2xl text-center text-[#1a5ec3] font-lexend mt-6 mb-8 fade-in">
+              For Brands that Mean Business
+            </p>
+            <div className="flex justify-center fade-in">
+              <button 
+                onClick={() => window.openModal?.()}
+                className="bg-[#1a5ec3] text-white px-8 py-4 rounded-md hover:bg-blue-700 transition-all hover-scale pulse text-lg font-lexend"
+              >
+                Get Started Today
+              </button>
+            </div>
           </div>
+        </div>
+
+        {/* Connecting Element */}
+        <div className="max-w-2xl mx-auto px-4 text-center mt-12 mb-8 fade-in">
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            <div className="h-[1px] w-12 bg-[#1a5ec3]/40"></div>
+            <div className="text-4xl">💫</div>
+            <div className="h-[1px] w-12 bg-[#1a5ec3]/40"></div>
+          </div>
+          <p className="text-gray-400 text-lg leading-relaxed max-w-xl mx-auto">
+            Transform your digital presence with our comprehensive suite of services
+          </p>
         </div>
       </main>
 
-      {/* Services Section - Updated gradient */}
-      <section className="bg-gradient-to-b from-[#1a5ec3] to-black pt-0 pb-20 w-full">
+      {/* Services Section */}
+      <section className="w-full py-16">
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white font-lexend text-center mb-12">
+          <h2 className="text-4xl font-bold text-white font-lexend text-center mb-12 fade-in">
             Our Expertise
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-6">
@@ -69,8 +86,14 @@ export default function Home() {
                 icon: "🎨"
               }
             ].map((service, index) => (
-              <div key={index} className="bg-black/50 p-6 lg:p-8 rounded-lg border border-[#1a5ec3]/20 hover:border-[#1a5ec3] transition-all">
-                <div className="text-3xl lg:text-4xl mb-4">{service.icon}</div>
+              <div 
+                key={index} 
+                className="bg-black/50 p-6 lg:p-8 rounded-lg border border-[#1a5ec3]/20 hover:border-[#1a5ec3] transition-all hover-scale fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="text-3xl lg:text-4xl mb-4 transform transition-transform hover:scale-110">
+                  {service.icon}
+                </div>
                 <h3 className="text-lg lg:text-xl font-lexend font-bold text-white mb-2 whitespace-pre-line">
                   {service.title}
                 </h3>
@@ -84,9 +107,9 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-black py-16 lg:py-20 w-full">
+      <section className="w-full py-16 lg:py-20">
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white font-lexend text-center mb-12">
+          <h2 className="text-4xl font-bold text-white font-lexend text-center mb-12 fade-in">
             Why Choose Unlmtd?
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-start">
