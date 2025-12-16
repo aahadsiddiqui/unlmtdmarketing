@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-scroll {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-open {
+    overflow: hidden;
+  }
+  
+  .mobile-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .mobile-text {
+    font-size: 0.9rem;
+  }
+  
+  .mobile-stack {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add hover effects */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+/* Add fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add pulse animation for CTAs */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(26, 94, 195, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(26, 94, 195, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(26, 94, 195, 0);
+  }
+}
+
+/* Service comparison slider */
+.comparison-slider {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-out;
+}
+
+.comparison-slider.visible {
+  transform: translateX(0);
+}
+
+/* Card flip animation */
+.card-flip {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-flip:hover .card-front {
+  transform: rotateY(180deg);
+}
+
+.card-flip:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparison-section {
+    flex-direction: column;
+  }
+  
+  .mobile-padding {
+    padding: 1rem;
+  }
+}
+
+/* Slide-up animation */
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+} 
