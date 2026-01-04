@@ -69,14 +69,18 @@ export default function ContactForm() {
                         <div className="space-y-8">
                             <div>
                                 <h3 className="text-white font-bold text-lg mb-2">Email Us</h3>
-                                <a href="mailto:hello@unlmtd.com" className="text-gray-400 hover:text-[#1a5ec3] transition-colors text-lg">hello@unlmtd.com</a>
+                                <a href="mailto:admin@unlmtdmarketing.ca" className="text-gray-400 hover:text-[#1a5ec3] transition-colors text-lg">admin@unlmtdmarketing.ca</a>
                             </div>
                             <div>
-                                <h3 className="text-white font-bold text-lg mb-2">Office</h3>
-                                <p className="text-gray-400 text-lg">
-                                    123 Innovation Dr.<br />
-                                    Tech City, TC 90210
-                                </p>
+                                <h3 className="text-white font-bold text-lg mb-2">Call Us</h3>
+                                <div className="space-y-2">
+                                    <p className="text-gray-400 text-lg">
+                                        Shayan: <a href="tel:+14167880756" className="hover:text-[#1a5ec3] transition-colors">+1 (416)-788-0756</a>
+                                    </p>
+                                    <p className="text-gray-400 text-lg">
+                                        Ryan: <a href="tel:+16479897926" className="hover:text-[#1a5ec3] transition-colors">+1 (647)-989-7926</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </motion.div>

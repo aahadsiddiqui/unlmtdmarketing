@@ -74,7 +74,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="mt-8 text-sm text-gray-500 font-lexend"
                 >
-                    No contracts. No fluff. Just results.
+                    Flexible contracts. No fluff. Just results.
                 </motion.p>
             </div>
 

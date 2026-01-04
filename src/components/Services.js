@@ -4,7 +4,7 @@ const services = [
     {
         title: "Performance Marketing",
         subtitle: "Paid Media That Actually Performs",
-        description: "Meta, Google, TikTok — campaigns optimized for ROI, not vanity metrics.",
+        description: "Meta — campaigns optimized for ROI, not vanity metrics.",
         bullets: ["Funnel strategy", "Creative testing", "Conversion tracking", "Scaling & optimization"],
         icon: "📈"
     },

@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 const testimonials = [
     {
         quote: "UNLMTD helped us scale profitably while fixing our funnel. Best decision we made.",
-        author: "Founder, E-Commerce Brand"
+        author: "Sarah J., E-Commerce Founder"
     },
     {
         quote: "Finally an agency that understands performance AND creative.",
-        author: "Startup CEO"
+        author: "Michael R., Tech CEO"
     }
 ];
 

@@ -36,10 +36,9 @@ const services = [
             "Social Media Content (Reels/TikTok)",
             "Professional Photography",
             "Video Production & Editing",
-            "Copywriting & Blog Writing",
             "Graphic Design"
         ],
-        deliverables: "Content Calendar, 12-15 Short-form Videos, Photo Library, Weekly Posts",
+        deliverables: "Content Strategy, Short-form Video Production, Professional Photography, Social Media Assets",
         outcome: "Consistent, high-quality content that builds community.",
         icon: "🎨"
     },
